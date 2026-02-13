@@ -144,6 +144,7 @@
 	}
 
 	registerBlockType( 'magnetic/filings', {
+		apiVersion: 3,
 		title: __( 'Magnetic Filings', 'magnetic-filings' ),
 		icon: 'admin-customizer',
 		category: 'design',
@@ -167,7 +168,7 @@
 
 			return el(
 				'div',
-				null,
+				blockProps,
 				el(
 					InspectorControls,
 					null,
@@ -257,22 +258,18 @@
 				),
 				el(
 					'div',
-					blockProps,
-					el(
-						'div',
-						{
-							className: 'magnetic-filings-ratio',
-							style: { paddingBottom: padding + '%' },
-						},
-						el( CanvasPreview, {
-							filingColor: attributes.filingColor,
-							backgroundColor: attributes.backgroundColor,
-							filingLength: attributes.filingLength,
-							filingWidth: attributes.filingWidth,
-							cols: attributes.amountX,
-							rows: attributes.amountY,
-						} )
-					)
+					{
+						className: 'magnetic-filings-ratio',
+						style: { paddingBottom: padding + '%' },
+					},
+					el( CanvasPreview, {
+						filingColor: attributes.filingColor,
+						backgroundColor: attributes.backgroundColor,
+						filingLength: attributes.filingLength,
+						filingWidth: attributes.filingWidth,
+						cols: attributes.amountX,
+						rows: attributes.amountY,
+					} )
 				)
 			);
 		},

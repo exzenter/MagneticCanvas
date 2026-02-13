@@ -33,15 +33,7 @@ function magnetic_filings_register_block() {
 		true
 	);
 
-	// Editor styles
-	wp_register_style(
-		'magnetic-filings-editor',
-		$asset_dir . 'block-editor.css',
-		array(),
-		'1.0.0'
-	);
-
-	// Frontend styles (loaded in both editor and frontend)
+	// Frontend styles (only enqueued when the block is rendered)
 	wp_register_style(
 		'magnetic-filings-style',
 		$asset_dir . 'block-style.css',
@@ -51,8 +43,6 @@ function magnetic_filings_register_block() {
 
 	register_block_type( 'magnetic/filings', array(
 		'editor_script'   => 'magnetic-filings-editor',
-		'editor_style'    => 'magnetic-filings-editor',
-		'style'           => 'magnetic-filings-style',
 		'view_script'     => 'magnetic-filings-frontend',
 		'render_callback' => 'magnetic_filings_render_block',
 		'attributes'      => array(
@@ -89,7 +79,19 @@ function magnetic_filings_register_block() {
 }
 add_action( 'init', 'magnetic_filings_register_block' );
 
+function magnetic_filings_editor_assets() {
+	wp_enqueue_style(
+		'magnetic-filings-editor',
+		plugin_dir_url( __FILE__ ) . 'block-editor.css',
+		array(),
+		'1.0.0'
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'magnetic_filings_editor_assets' );
+
 function magnetic_filings_render_block( $attributes ) {
+	wp_enqueue_style( 'magnetic-filings-style' );
+
 	$id          = wp_unique_id( 'magnetic-filings-' );
 	$aspect      = esc_attr( $attributes['aspectRatio'] );
 	$color       = esc_attr( $attributes['filingColor'] );
