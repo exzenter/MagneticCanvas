@@ -1,0 +1,20 @@
+.magnetic-filings-block {
+	width: 100%;
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.magnetic-filings-ratio {
+	position: relative;
+	width: 100%;
+	height: 0;
+}
+
+.magnetic-filings-canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
