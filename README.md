@@ -1,5 +1,7 @@
 # Magnetic Canvas
 
+[https://exzent.de](https://exzent.de)
+
 Interactive magnetic filings effect — small bars rotate to follow the cursor like iron filings near a magnet.
 
 ## Demo (Standalone)

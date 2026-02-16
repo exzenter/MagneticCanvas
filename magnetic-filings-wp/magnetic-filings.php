@@ -3,7 +3,9 @@
  * Plugin Name: Magnetic Filings
  * Description: Interactive magnetic filings canvas effect — filings follow the cursor like iron filings near a magnet.
  * Version: 1.0.0
- * Author: Magnetic
+ * Plugin URI: https://exzent.de/plugins/
+ * Author: EXZENT
+ * Author URI: https://exzent.de
  * License: GPL-2.0-or-later
  * Text Domain: magnetic-filings
  */
