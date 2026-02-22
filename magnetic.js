@@ -64,16 +64,20 @@ class MagneticFilings {
     createFilings() {
         this.filings = [];
 
-        const totalWidth = this.config.cols * this.config.spacing;
-        const totalHeight = this.config.rows * this.config.spacing;
+        const spacing = this.config.spacing;
+        const cols = Math.max(1, Math.round(this.canvasWidth / spacing));
+        const rows = Math.max(1, Math.round(this.canvasHeight / spacing));
+
+        const totalWidth = cols * spacing;
+        const totalHeight = rows * spacing;
 
         const offsetX = (this.canvasWidth - totalWidth) / 2;
         const offsetY = (this.canvasHeight - totalHeight) / 2;
 
-        for (let row = 0; row < this.config.rows; row++) {
-            for (let col = 0; col < this.config.cols; col++) {
-                const x = offsetX + col * this.config.spacing + this.config.spacing / 2;
-                const y = offsetY + row * this.config.spacing + this.config.spacing / 2;
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const x = offsetX + col * spacing + spacing / 2;
+                const y = offsetY + row * spacing + spacing / 2;
 
                 this.filings.push({
                     x,

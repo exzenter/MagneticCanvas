@@ -31,22 +31,15 @@
 			canvasHeight = rect.height;
 			canvasRect = rect;
 
-			var spacing = Math.min(
-				canvasWidth / ( cols + 1 ),
-				canvasHeight / ( rows + 1 )
-			);
-
-			var totalW = cols * spacing;
-			var totalH = rows * spacing;
-			var offX = ( canvasWidth - totalW ) / 2;
-			var offY = ( canvasHeight - totalH ) / 2;
+			var spacingX = canvasWidth / cols;
+			var spacingY = canvasHeight / rows;
 
 			filings = [];
 			for ( var r = 0; r < rows; r++ ) {
 				for ( var c = 0; c < cols; c++ ) {
 					filings.push( {
-						x: offX + c * spacing + spacing / 2,
-						y: offY + r * spacing + spacing / 2,
+						x: ( c + 0.5 ) * spacingX,
+						y: ( r + 0.5 ) * spacingY,
 						angle: 0,
 						targetAngle: 0,
 					} );

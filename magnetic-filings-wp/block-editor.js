@@ -46,22 +46,15 @@
 				var cw = rect.width;
 				var ch = rect.height;
 
-				var spacing = Math.min(
-					cw / ( cols + 1 ),
-					ch / ( rows + 1 )
-				);
-
-				var totalW = cols * spacing;
-				var totalH = rows * spacing;
-				var offX = ( cw - totalW ) / 2;
-				var offY = ( ch - totalH ) / 2;
+				var spacingX = cw / cols;
+				var spacingY = ch / rows;
 
 				var filings = [];
 				for ( var r = 0; r < rows; r++ ) {
 					for ( var c = 0; c < cols; c++ ) {
 						filings.push( {
-							x: offX + c * spacing + spacing / 2,
-							y: offY + r * spacing + spacing / 2,
+							x: ( c + 0.5 ) * spacingX,
+							y: ( r + 0.5 ) * spacingY,
 							angle: 0,
 							targetAngle: 0,
 						} );
